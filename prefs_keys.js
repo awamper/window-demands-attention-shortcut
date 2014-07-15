@@ -1,0 +1,1 @@
+const SHORTCUT = 'wda-shortcut';
