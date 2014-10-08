@@ -7,6 +7,10 @@ const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
 const Utils = Me.imports.utils;
 const PrefsKeys = Me.imports.prefs_keys;
+const Convenience = Me.imports.convenience;
+
+const Gettext = imports.gettext.domain('window_demands_attention_shortcut');
+const _ = Gettext.gettext;
 
 const CONNECTION_IDS = {
     WDA: 0
@@ -30,7 +34,7 @@ const WindowDemandsAttentionShortcut = new Lang.Class({
 
     _activate_last_window: function() {
         if(this._windows.length === 0) {
-            Main.notify('No windows in the queue.');
+            Main.notify(_("No windows in the queue."));
             return;
         }
 
@@ -70,7 +74,7 @@ const WindowDemandsAttentionShortcut = new Lang.Class({
 let wda_shortcut = null;
 
 function init() {
-    // nothing
+    Convenience.initTranslations("window_demands_attention_shortcut");
 }
 
 function enable() {

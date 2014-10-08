@@ -7,6 +7,10 @@ const Params = imports.misc.params;
 const Me = imports.misc.extensionUtils.getCurrentExtension();
 const PrefsKeys = Me.imports.prefs_keys;
 const Utils = Me.imports.utils;
+const Convenience = Me.imports.convenience;
+
+const Gettext = imports.gettext.domain('window_demands_attention_shortcut');
+const _ = Gettext.gettext;
 
 const KeybindingsWidget = new GObject.Class({
     Name: 'WDAKeybindings.Widget',
@@ -49,7 +53,7 @@ const KeybindingsWidget = new GObject.Class({
 
         let action_renderer = new Gtk.CellRendererText();
         let action_column = new Gtk.TreeViewColumn({
-            'title': 'Action',
+            'title': _("Action"),
             'expand': true
         });
         action_column.pack_start(action_renderer, true);
@@ -82,7 +86,7 @@ const KeybindingsWidget = new GObject.Class({
         );
 
         let keybinding_column = new Gtk.TreeViewColumn({
-            'title': 'Modify'
+            'title': _("Modify")
         });
         keybinding_column.pack_end(keybinding_renderer, false);
         keybinding_column.add_attribute(
@@ -342,7 +346,7 @@ const WDAPrefsWidget = new GObject.Class({
 
         let keybindings = {};
         keybindings[PrefsKeys.SHORTCUT] =
-            'Activate window';
+            _("Activate window");
 
         let keybindings_widget = new KeybindingsWidget(keybindings);
         page.add_item(keybindings_widget)
@@ -355,7 +359,7 @@ const WDAPrefsWidget = new GObject.Class({
 });
 
 function init(){
-    // nothing
+    Convenience.initTranslations("window_demands_attention_shortcut");
 }
 
 function buildPrefsWidget() {
