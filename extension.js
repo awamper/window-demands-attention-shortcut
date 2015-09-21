@@ -39,13 +39,21 @@ const WindowDemandsAttentionShortcut = new Lang.Class({
     },
 
     _add_keybindings: function() {
+        var modes;
+        try {
+            modes = Shell.ActionMode.NORMAL |
+                Shell.ActionMode.MESSAGE_TRAY |
+                Shell.ActionMode.OVERVIEW;
+        } catch (e if e instanceof TypeError) {
+            modes = Shell.KeyBindingMode.NORMAL |
+                Shell.KeyBindingMode.MESSAGE_TRAY |
+                Shell.KeyBindingMode.OVERVIEW;
+        }
         Main.wm.addKeybinding(
             PrefsKeys.SHORTCUT,
             Utils.SETTINGS,
             Meta.KeyBindingFlags.NONE,
-            Shell.ActionMode.NORMAL |
-            Shell.ActionMode.MESSAGE_TRAY |
-            Shell.ActionMode.OVERVIEW,
+            modes,
             Lang.bind(this, this._activate_last_window)
         );
     },
