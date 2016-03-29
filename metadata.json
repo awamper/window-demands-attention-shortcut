@@ -3,7 +3,8 @@
   "name": "Window demands attention shortcut",
   "shell-version": [
       "3.15.90",
-      "3.16"
+      "3.16",
+      "3.18"
   ],
   "url": "https://github.com/awamper/window-demands-attention-shortcut",
   "uuid": "window_demands_attention_shortcut@awamper.gmail.com",
