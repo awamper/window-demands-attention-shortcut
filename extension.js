@@ -44,7 +44,6 @@ const WindowDemandsAttentionShortcut = new Lang.Class({
             Utils.SETTINGS,
             Meta.KeyBindingFlags.NONE,
             Shell.ActionMode.NORMAL |
-            Shell.ActionMode.MESSAGE_TRAY |
             Shell.ActionMode.OVERVIEW,
             Lang.bind(this, this._activate_last_window)
         );
