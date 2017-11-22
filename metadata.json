@@ -2,7 +2,7 @@
   "description": "Activate demanding attention window. <Super>W is default keybinding.",
   "name": "Window demands attention shortcut",
   "shell-version": [
-	"3.24"
+	"3.26"
   ],
   "url": "https://github.com/awamper/window-demands-attention-shortcut",
   "uuid": "window_demands_attention_shortcut@awamper.gmail.com",
